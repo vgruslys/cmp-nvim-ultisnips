@@ -34,6 +34,9 @@ function source.complete(self, _, callback)
       kind = cmp.lsp.CompletionItemKind.Snippet,
       snippet = snippet,
     }
+    if is_regex_snippet then
+      item.filterText = item.insertText
+    end
     table.insert(items, item)
   end
   callback {
